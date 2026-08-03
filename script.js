@@ -3,42 +3,165 @@
 // =============================
 
 const values = [
-  "I always act with honesty, even when no one is watching.",
-  "Helping others gives meaning to my life.",
-  "I enjoy learning new things every day.",
-  "I always try to do my best.",
-  "I take responsibility for my actions.",
-  "I enjoy creating new ideas.",
-  "I respect everyone regardless of their background.",
-  "I enjoy working with others.",
-  "I never give up when facing difficulties.",
-  "I always look for opportunities to grow."
+
+{
+trait:"Integrity",
+question:"I always act with honesty, even when no one is watching."
+},
+
+{
+trait:"Service",
+question:"Helping others gives meaning to my life."
+},
+
+{
+trait:"Learning",
+question:"I actively seek new knowledge and enjoy learning throughout my life."
+},
+
+{
+trait:"Excellence",
+question:"I always strive to produce work of the highest quality."
+},
+
+{
+trait:"Responsibility",
+question:"I take ownership of my actions and decisions."
+},
+
+{
+trait:"Innovation",
+question:"I enjoy creating new ideas and improving existing solutions."
+},
+
+{
+trait:"Respect",
+question:"I treat every person with respect regardless of their background."
+},
+
+{
+trait:"Collaboration",
+question:"I enjoy working with others toward a common goal."
+},
+
+{
+trait:"Perseverance",
+question:"I continue working toward my goals even when facing challenges."
+},
+
+{
+trait:"Growth",
+question:"I continuously look for opportunities to improve myself."
+}
+
 ];
 
 const strengths = [
-  "I enjoy solving complex problems.",
-  "People often ask me for advice.",
-  "I generate creative ideas easily.",
-  "I communicate my ideas clearly.",
-  "I stay organized in my work.",
-  "I pay attention to small details.",
-  "I learn new skills quickly.",
-  "I always finish what I start.",
-  "I enjoy working in teams.",
-  "I make decisions confidently."
+
+{
+trait:"Analytical Thinking",
+question:"I enjoy solving complex problems."
+},
+
+{
+trait:"Leadership",
+question:"People often ask me for advice or guidance."
+},
+
+{
+trait:"Creativity",
+question:"I generate new ideas easily."
+},
+
+{
+trait:"Communication",
+question:"I express my ideas clearly."
+},
+
+{
+trait:"Organization",
+question:"I keep my work organized and structured."
+},
+
+{
+trait:"Attention to Detail",
+question:"I notice small details that others often miss."
+},
+
+{
+trait:"Learning Agility",
+question:"I learn new skills quickly."
+},
+
+{
+trait:"Perseverance",
+question:"I always finish what I start."
+},
+
+{
+trait:"Teamwork",
+question:"I enjoy collaborating with other people."
+},
+
+{
+trait:"Decision Making",
+question:"I make decisions confidently."
+}
+
 ];
 
 const passions = [
-  "I enjoy teaching others.",
-  "I love learning about technology.",
-  "I enjoy scientific research.",
-  "I like creating businesses or projects.",
-  "I enjoy writing articles or content.",
-  "Helping people motivates me.",
-  "I enjoy speaking in front of people.",
-  "I like creating digital content.",
-  "Reading inspires me.",
-  "I enjoy building innovative solutions."
+
+{
+trait:"Teaching",
+question:"I enjoy teaching other people."
+},
+
+{
+trait:"Technology",
+question:"I enjoy learning about technology."
+},
+
+{
+trait:"Research",
+question:"I enjoy scientific research."
+},
+
+{
+trait:"Entrepreneurship",
+question:"I enjoy building businesses or projects."
+},
+
+{
+trait:"Writing",
+question:"I enjoy writing articles or content."
+},
+
+{
+trait:"Helping Others",
+question:"Helping people motivates me."
+},
+
+{
+trait:"Public Speaking",
+question:"I enjoy speaking in front of an audience."
+},
+
+{
+trait:"Content Creation",
+question:"I enjoy creating digital content."
+},
+
+{
+trait:"Reading",
+question:"Reading inspires me."
+},
+
+{
+trait:"Innovation",
+question:"I enjoy creating innovative solutions."
+}
+
 ];
 
 // =============================
@@ -65,7 +188,7 @@ function createSection(title, questions, prefix){
 
         div.className="question";
 
-        let html=`<p>${index+1}. ${question}</p>`;
+        let html=`<p>${index+1}. ${question.question}</p>`;
 
         for(let i=1;i<=5;i++){
 
@@ -113,7 +236,7 @@ document.getElementById("calculate").addEventListener("click", function () {
         }
 
         valueScores.push({
-            name: question,
+            name: question.trait,
             score: parseInt(selected.value)
         });
     });
@@ -128,7 +251,7 @@ document.getElementById("calculate").addEventListener("click", function () {
         }
 
         strengthScores.push({
-            name: question,
+            name: question.trait,
             score: parseInt(selected.value)
         });
     });
@@ -143,7 +266,7 @@ document.getElementById("calculate").addEventListener("click", function () {
         }
 
         passionScores.push({
-            name: question,
+            name: question.trait,
             score: parseInt(selected.value)
         });
     });
