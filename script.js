@@ -192,17 +192,17 @@ function createSection(title, questions, prefix){
 
         for(let i=1;i<=5;i++){
 
-            html+=`
+            html += `
             <label>
-
+            
             <input
             type="radio"
             name="${prefix}${index}"
             value="${i}"
             required>
-
-            ${i}
-
+            
+            <span>${i}</span>
+            
             </label>
             `;
 
