@@ -1,81 +1,332 @@
+/* ===========================================
+   Google Font
+=========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fb;
+    color:#1e293b;
+    line-height:1.6;
+
+}
+
+/* ===========================================
+   Main Container
+=========================================== */
+
+.container{
+
+    width:90%;
+    max-width:900px;
+
+    margin:50px auto;
+
+}
+
+/* ===========================================
+   Hero
+=========================================== */
+
+h1{
+
+    font-size:46px;
+    font-weight:800;
+    color:#0F172A;
+
+    text-align:center;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    font-size:18px;
+
+    color:#64748B;
+
+    margin-top:10px;
+    margin-bottom:50px;
+
+}
+
+/* ===========================================
+   Sections
+=========================================== */
+
 .section{
 
-margin-top:50px;
+    margin-bottom:60px;
 
 }
 
 .section h2{
 
-margin-bottom:25px;
+    font-size:30px;
 
-color:#0F172A;
+    color:#D4AF37;
+
+    margin-bottom:25px;
 
 }
 
+/* ===========================================
+   Question Card
+=========================================== */
+
 .question{
 
-background:white;
+    background:white;
 
-padding:20px;
+    border-radius:18px;
 
-border-radius:12px;
+    padding:28px;
 
-margin-bottom:20px;
+    margin-bottom:25px;
 
-box-shadow:0 3px 10px rgba(0,0,0,.05);
+    box-shadow:0 15px 35px rgba(0,0,0,.07);
+
+    transition:.35s;
+
+}
+
+.question:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
 
 }
 
 .question p{
 
-font-weight:600;
+    font-size:18px;
 
-margin-bottom:15px;
+    font-weight:600;
+
+    margin-bottom:20px;
 
 }
+
+/* ===========================================
+   Rating
+=========================================== */
 
 .question label{
 
-margin-right:20px;
+    display:inline-flex;
 
-cursor:pointer;
+    flex-direction:column;
 
-font-size:15px;
+    align-items:center;
+
+    justify-content:center;
+
+    width:48px;
+
+    height:48px;
+
+    margin-right:10px;
+
+    border-radius:50%;
+
+    border:2px solid #CBD5E1;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-weight:600;
 
 }
 
+.question label:hover{
 
+    background:#D4AF37;
+
+    color:white;
+
+    border-color:#D4AF37;
+
+}
+
+.question input{
+
+    display:none;
+
+}
+
+.question input:checked + span{
+
+    background:#D4AF37;
+
+    color:white;
+
+}
+
+/* radio circle */
+
+.question span{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:2px solid #CBD5E1;
+
+    transition:.25s;
+
+}
+
+/* ===========================================
+   Button
+=========================================== */
+
+.center{
+
+    text-align:center;
+
+    margin:50px 0;
+
+}
+
+button{
+
+    background:#D4AF37;
+
+    color:white;
+
+    border:none;
+
+    padding:18px 45px;
+
+    font-size:18px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:700;
+
+}
+
+button:hover{
+
+    background:#b99218;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+
+}
+
+/* ===========================================
+   Results
+=========================================== */
 
 #results{
 
-margin-top:60px;
+    display:none;
 
-padding:30px;
+    margin-top:60px;
 
-background:white;
+    background:white;
 
-border-radius:20px;
+    padding:40px;
 
-box-shadow:0 5px 20px rgba(0,0,0,.08);
+    border-radius:20px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
 
 }
 
 #results h2{
 
-margin-bottom:20px;
+    text-align:center;
+
+    color:#0F172A;
+
+    margin-bottom:35px;
 
 }
 
 #results h3{
 
-margin-top:25px;
+    color:#D4AF37;
 
-color:#0F172A;
+    margin-top:25px;
+
+    margin-bottom:15px;
 
 }
 
 #results ul{
 
-padding-left:20px;
+    list-style:none;
+
+    padding:0;
+
+}
+
+#results li{
+
+    background:#F8FAFC;
+
+    margin-bottom:10px;
+
+    padding:15px;
+
+    border-left:5px solid #D4AF37;
+
+    border-radius:10px;
+
+}
+
+/* ===========================================
+   Responsive
+=========================================== */
+
+@media(max-width:768px){
+
+    h1{
+
+        font-size:34px;
+
+    }
+
+    .question{
+
+        padding:20px;
+
+    }
+
+    .question label{
+
+        width:42px;
+
+        height:42px;
+
+        margin-right:5px;
+
+    }
 
 }
