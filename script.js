@@ -218,7 +218,9 @@ function createSection(title, questions, prefix){
 
 }
 
+// =============================
 // Calculate Results
+// =============================
 
 document.getElementById("calculate").addEventListener("click", function () {
 
@@ -226,8 +228,9 @@ document.getElementById("calculate").addEventListener("click", function () {
     let strengthScores = [];
     let passionScores = [];
 
-    // Values
-    values.forEach((question, index) => {
+    // -------- Values --------
+    for (let index = 0; index < values.length; index++) {
+
         const selected = document.querySelector(`input[name="value${index}"]:checked`);
 
         if (!selected) {
@@ -236,13 +239,15 @@ document.getElementById("calculate").addEventListener("click", function () {
         }
 
         valueScores.push({
-            name: question.trait,
+            name: values[index].trait,
             score: parseInt(selected.value)
         });
-    });
 
-    // Strengths
-    strengths.forEach((question, index) => {
+    }
+
+    // -------- Strengths --------
+    for (let index = 0; index < strengths.length; index++) {
+
         const selected = document.querySelector(`input[name="strength${index}"]:checked`);
 
         if (!selected) {
@@ -251,13 +256,15 @@ document.getElementById("calculate").addEventListener("click", function () {
         }
 
         strengthScores.push({
-            name: question.trait,
+            name: strengths[index].trait,
             score: parseInt(selected.value)
         });
-    });
 
-    // Passions
-    passions.forEach((question, index) => {
+    }
+
+    // -------- Passions --------
+    for (let index = 0; index < passions.length; index++) {
+
         const selected = document.querySelector(`input[name="passion${index}"]:checked`);
 
         if (!selected) {
@@ -266,44 +273,49 @@ document.getElementById("calculate").addEventListener("click", function () {
         }
 
         passionScores.push({
-            name: question.trait,
+            name: passions[index].trait,
             score: parseInt(selected.value)
         });
-    });
 
-    // Sort descending
+    }
+
+    // Sort scores
     valueScores.sort((a,b)=>b.score-a.score);
     strengthScores.sort((a,b)=>b.score-a.score);
     passionScores.sort((a,b)=>b.score-a.score);
 
-    // Top 5
+    // Keep Top 5
     const topValues = valueScores.slice(0,5);
     const topStrengths = strengthScores.slice(0,5);
     const topPassions = passionScores.slice(0,5);
 
-    // Display Results
-    document.getElementById("results").innerHTML = `
+    // Display results
+    const results = document.getElementById("results");
 
-        <h2>Your Results</h2>
+    results.style.display = "block";
+
+    results.innerHTML = `
+        <h2>🏆 Your VSP Profile</h2>
 
         <h3>💎 Top 5 Values</h3>
-
         <ul>
             ${topValues.map(v=>`<li>${v.name}</li>`).join("")}
         </ul>
 
         <h3>💪 Top 5 Strengths</h3>
-
         <ul>
             ${topStrengths.map(v=>`<li>${v.name}</li>`).join("")}
         </ul>
 
         <h3>❤️ Top 5 Passions</h3>
-
         <ul>
             ${topPassions.map(v=>`<li>${v.name}</li>`).join("")}
         </ul>
-
     `;
+
+    // Scroll to results
+    results.scrollIntoView({
+        behavior: "smooth"
+    });
 
 });
