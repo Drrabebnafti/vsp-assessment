@@ -94,3 +94,93 @@ function createSection(title, questions, prefix){
     container.appendChild(section);
 
 }
+
+// Calculate Results
+
+document.getElementById("calculate").addEventListener("click", function () {
+
+    let valueScores = [];
+    let strengthScores = [];
+    let passionScores = [];
+
+    // Values
+    values.forEach((question, index) => {
+        const selected = document.querySelector(`input[name="value${index}"]:checked`);
+
+        if (!selected) {
+            alert("Please answer all the Values questions.");
+            return;
+        }
+
+        valueScores.push({
+            name: question,
+            score: parseInt(selected.value)
+        });
+    });
+
+    // Strengths
+    strengths.forEach((question, index) => {
+        const selected = document.querySelector(`input[name="strength${index}"]:checked`);
+
+        if (!selected) {
+            alert("Please answer all the Strengths questions.");
+            return;
+        }
+
+        strengthScores.push({
+            name: question,
+            score: parseInt(selected.value)
+        });
+    });
+
+    // Passions
+    passions.forEach((question, index) => {
+        const selected = document.querySelector(`input[name="passion${index}"]:checked`);
+
+        if (!selected) {
+            alert("Please answer all the Passions questions.");
+            return;
+        }
+
+        passionScores.push({
+            name: question,
+            score: parseInt(selected.value)
+        });
+    });
+
+    // Sort descending
+    valueScores.sort((a,b)=>b.score-a.score);
+    strengthScores.sort((a,b)=>b.score-a.score);
+    passionScores.sort((a,b)=>b.score-a.score);
+
+    // Top 5
+    const topValues = valueScores.slice(0,5);
+    const topStrengths = strengthScores.slice(0,5);
+    const topPassions = passionScores.slice(0,5);
+
+    // Display Results
+    document.getElementById("results").innerHTML = `
+
+        <h2>Your Results</h2>
+
+        <h3>💎 Top 5 Values</h3>
+
+        <ul>
+            ${topValues.map(v=>`<li>${v.name}</li>`).join("")}
+        </ul>
+
+        <h3>💪 Top 5 Strengths</h3>
+
+        <ul>
+            ${topStrengths.map(v=>`<li>${v.name}</li>`).join("")}
+        </ul>
+
+        <h3>❤️ Top 5 Passions</h3>
+
+        <ul>
+            ${topPassions.map(v=>`<li>${v.name}</li>`).join("")}
+        </ul>
+
+    `;
+
+});
